@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BrandName - Premium Shop</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+      background-color: #faf8f6;
+      color: #2b2b2b;
+    }
+
+    
+    .site-wrapper {
+      display: grid;
+      grid-template-areas: 
+        "header header"
+        "nav nav"
+        "left-sidebar main-content";
+      grid-template-columns: 260px 1fr; /* Fixed sidebar width, main stretches */
+      min-height: 100vh;
+    }
+
+    .header {
+      grid-area: header;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background-color: #c46b51; 
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    
+    .brand-name {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 42px;
+      color: #fbd46d; 
+      text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+    }
+
+    .reg-btn {
+      padding: 8px 24px;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      background: transparent;
+      color: white;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .reg-btn:hover {
+      background: white;
+      color: #c46b51;
+    }
+
+    .body-nav-bar {
+      grid-area: nav;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background-color: white;
+      border-bottom: 1px solid #eaeaea;
+    }
+    
+   
+    main {
+      grid-area: main-content;
+      padding: 40px;
+    }
+
+    
+    .left-sidebar { 
+      grid-area: left-sidebar; 
+      background-color: #fff;
+      border-right: 1px solid #eaeaea;
+      padding: 40px 30px;
+    }
+
+    .sidebar-sticky-wrapper {
+      position: sticky;
+      top: 20px; 
+    }
+
+    .sidebar-heading {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #c46b51;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .sidebar-link {
+      display: block;
+      color: #666;
+      text-decoration: none;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+      transition: color 0.2s;
+    }
+
+    .sidebar-link:hover { color: #c46b51; }
+
+    
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); 
+      gap: 20px; 
+      width: 100%;
+    }
+
+    .product-card {
+      background: transparent;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .image {
+      background-color: #f6f6f2; 
+      aspect-ratio: 1 / 1; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+
+    .image img {
+      width: 100%;
+      height: 100%;/* Prevents image distortion */
+    }
+
+    .product-title {
+      font-size: 16px;
+      font-weight: 500;
+      margin: 0 0 6px 0;
+      text-transform: capitalize;
+    }
+
+    .product-price {
+      font-size: 14px;
+      color: #666;
+      margin: 0;
+    }
+
+   
+    @media (max-width: 1024px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr); 
+      }
+    }
+
+    @media (max-width: 768px) {
+      .site-wrapper {
+        grid-template-areas: 
+          "header"
+          "nav"
+          "left-sidebar"
+          "main-content";
+        grid-template-columns: 1fr;
+      }
+      
+      .product-grid {
+        grid-template-columns: 1fr; 
+      }
+      
+      main, .left-sidebar {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="site-wrapper">
+  <!-- Header Section -->
+  <header class="header">
+    <div class="brand-name">BrandName</div>
+    <div class="button-row">
+      <a href="registration.html"><button class="reg-btn">Register</button></a>
+    </div>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav class="body-nav-bar">
+    <div class="nav-left">
+      <a href="main.html" style="text-decoration:none; color:#666; margin-right: 25px;">Home</a>
+       <a href="aboutus.html" style="text-decoration:none; color:#666;margin-right: 25px;">About us</a>
+      <a href="prodct.html" style="text-decoration:none; color:#666;">Shop</a>
+    </div>
+    <div class="nav-right">
+      <a href="tel:+123456789" style="text-decoration:none; color:#2b2b2b;">📞 +1 234 567</a>
+    </div>
+  </nav>
+
+  <!-- LEFT SIDEBAR -->
+  <aside class="sidebar left-sidebar">
+    <div class="sidebar-sticky-wrapper">
+      <h3 class="sidebar-heading">Categories</h3>
+      <a href="#" class="sidebar-link">New Arrivals</a>
+      <a href="#" class="sidebar-link">Best Sellers</a>
+      <a href="#" class="sidebar-link">Limited Edition</a>
+      <a href="#" class="sidebar-link">Discovery Sets</a>
+      
+      <h3 class="sidebar-heading" style="margin-top:30px;">Scent Notes</h3>
+      <a href="#" class="sidebar-link">Woody & Earthy</a>
+      <a href="#" class="sidebar-link">Floral & Sweet</a>
+      <a href="#" class="sidebar-link">Fresh & Citrus</a>
+    </div>
+  </aside>
+
+  <!-- MAIN PRODUCT CONTENT AREA -->
+  <main>
+    <section class="product_section">
+       <div class="product-grid">
+         
+          <div class="product-card">
+              <div class="image">
+                  <img src="C:\Users\rishi\Downloads\prd1.avif" alt="Pearl Soap">
+              </div>
+              <div class="product-info">
+                  <h3 class="product-title">Pearl Soap</h3>
+                  <p class="product-price">285.00</p>
+              </div>
+          </div>
+      
+          <div class="product-card">
+              <div class="image">
+                  <img src="C:\Users\rishi\Downloads\prd2.avif" alt="Vanilla Scent">
+              </div>
+              <div class="product-info">
+                  <h3 class="product-title">Vanilla Scent</h3>
+                  <p class="product-price">285.00</p>
+              </div>
+          </div>
+      
+          <div class="product-card">
+              <div class="image">
+                  <img src="C:\Users\rishi\Downloads\prd3.avif" alt="Coconut Bush">
+              </div>
+              <div class="product-info">
+                  <h3 class="product-title">Coconut Bush</h3>
+                  <p class="product-price">335.00</p>
+              </div>
+          </div>
+
+          <div class="product-card">
+              <div class="image">
+                  <img src="C:\Users\rishi\Downloads\prd4.avif" alt="Chocolate">
+              </div>
+              <div class="product-info">
+                  <h3 class="product-title">Chocolate</h3>
+                  <p class="product-price">299.00</p>
+              </div>
+          </div>
+
+          <div class="product-card">
+              <div class="image">
+                  <img src="C:\Users\rishi\Downloads\prd5.avif" alt="Honey Abstract">
+              </div>
+              <div class="product-info">
+                  <h3 class="product-title">Honey Abstract</h3>
+                  <p class="product-price">285.00</p>
+              </div>
+          </div>
+
+       </div>
+    </section>
+  </main>
+</div>
+
+</body>
+</html>
