@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>FRAIS SCENTS — Dusk & Lavender</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Google Fonts: Playfair Display for titles, Alex Brush for elegant cursive accents, Inter for modern body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Modern Minimalist Core Design Variables */
+        :root {
+            --bg-base: #faf9f6;        /* Subtle warm backdrop color */
+            --text-main: #222222;      /* Matte dark grey */
+            --text-muted: #767676;     /* Understated gray for sub-info */
+            --luxury-gold: #c3a37a;    /* Refined luxurious gold accent */
+            --border-light: #eae6df;   /* Minimalist high-end hairline framing */
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.25s ease;
+        }
+        a:hover {
+            opacity: 0.7;
+        }
+
+        /* --- STICKY NAVIGATION BAR --- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 4rem;
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-left-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        /* Requested Custom Cursive Font for Branding */
+        .brand-cursive {
+            font-family: 'Alex Brush', cursive;
+            font-size: 2.6rem;
+            color: var(--text-main);
+            font-weight: 400;
+            white-space: nowrap;
+        }
+
+        .nav-links-list {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links-list a {
+            color: var(--text-muted);
+        }
+        .nav-links-list a.active {
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        /* Requested Cursive Font & Minimal Styling for Cart Element */
+        .cart-btn-cursive {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'Alex Brush', cursive;
+            font-size: 1.7rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--text-main);
+            padding: 0 0.5rem;
+            position: relative;
+            line-height: 1;
+        }
+        .cart-btn-cursive::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: var(--text-main);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.35s ease;
+        }
+        .cart-btn-cursive:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        .cart-count-badge {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--luxury-gold);
+            vertical-align: middle;
+            transition: transform 0.2s ease;
+            display: inline-block;
+        }
+
+        /* --- PRIMARY HERO PRODUCT WINDOW --- */
+        .main-product-showcase {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .image-gallery-frame {
+            background-color: var(--white);
+            border: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            aspect-ratio: 1 / 1.1;
+        }
+
+        .showcase-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .product-details-panel {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-sku {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .product-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-pricing {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .original-price-slashed {
+            text-decoration: line-through;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .current-active-price {
+            color: var(--luxury-gold);
+            font-weight: 500;
+        }
+
+        .product-editorial-copy {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .checkout-actions-block {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .quantity-spinner {
+            width: 65px;
+            height: 46px;
+            border: 1px solid var(--border-light);
+            background-color: var(--white);
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: var(--text-main);
+            outline: none;
+        }
+
+        /* Minimal non-cursive style for buttons */
+        .btn-minimal-primary {
+            height: 46px;
+            padding: 0 3rem;
+            background-color: var(--text-main);
+            color: var(--white);
+            border: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            line-height: 46px;
+            display: inline-block;
+        }
+        .btn-minimal-primary:hover {
+            background-color: var(--luxury-gold);
+        }
+
+        /* --- RELATED CONTENT DISPLAY --- */
+        .related-products-section {
+            border-top: 1px solid var(--border-light);
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 4rem;
+            letter-spacing: 0.5px;
+        }
+
+        .products-grid-layout {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .boutique-product-card {
+            background-color: var(--white);
+            border: 1px solid var(--border-light);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .boutique-product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.02);
+        }
+
+        .promotional-sale-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--luxury-gold);
+            color: var(--white);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 0.3rem 0.6rem;
+            font-weight: 500;
+            z-index: 10;
+        }
+
+        .card-graphic-container {
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            background-color: #fafafa;
+        }
+
+        .card-thumbnail-image {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .card-product-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+            text-align: center;
+        }
+
+        .star-rating-row {
+            display: flex;
+            justify-content: center;
+            gap: 2px;
+            color: #d4af37; /* Clean editorial gold tone stars */
+            font-size: 0.7rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .card-pricing-row {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            margin-top: auto;
+        }
+        .card-pricing-row .sale-highlight {
+            color: var(--luxury-gold);
+            font-weight: 500;
+            margin-left: 0.4rem;
+        }
+
+        .btn-minimal-secondary {
+            width: 100%;
+            height: 40px;
+            background: none;
+            border: 1px solid var(--text-main);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            line-height: 38px;
+        }
+        .btn-minimal-secondary:hover {
+            background-color: var(--text-main);
+            color: var(--white);
+        }
+
+        /* --- FOOTER COMPONENT --- */
+        .editorial-footer {
+            background-color: var(--white);
+            border-top: 1px solid var(--border-light);
+            padding: 3rem 2rem;
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* --- RESPONSIVE STRUCTURAL MEDIA QUERY BREAKPOINTS --- */
+        @media (max-width: 1024px) {
+            .navbar { padding: 1.25rem 2rem; }
+            .main-product-showcase { grid-template-columns: 1fr; gap: 3rem; }
+            .image-gallery-frame { aspect-ratio: 4 / 3; }
+            .products-grid-layout { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .nav-links-list { display: none; } /* Keeps top-nav perfectly minimal without multi-line breaks */
+            .products-grid-layout { grid-template-columns: 1fr; }
+            .product-title { font-size: 2.2rem; }
+            .navbar { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Minimalist Brand Navigation Headliner -->
+    <nav class="navbar">
+        <div class="nav-left-wrapper">
+            <a class="brand-cursive" href="#">Frais Scents</a>
+            <ul class="nav-links-list">
+                <li><a class="active" href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Shop</a></li>
+            </ul>
+        </div>
+        <button class="cart-btn-cursive">
+            Cart <span class="cart-count-badge" id="cart-display">(0)</span>
+        </button>
+    </nav>
+
+    <!-- Main Editorial Product Matrix Layout -->
+    <main class="main-product-showcase">
+        <div class="image-gallery-frame">
+            <img class="showcase-image" src="C:\Users\rishi\Downloads\prd2.avif" alt="Dusk & Lavender Premium Candle" />
+        </div>
+        
+        <div class="product-details-panel">
+            <span class="product-sku">SKU: BST-498</span>
+            <h1 class="product-title">Dusk & Lavender 3-Wick Candle</h1>
+            
+            <div class="product-pricing">
+                <span class="original-price-slashed">Rs 349.00</span>
+                <span class="current-active-price">Rs 299.00</span>
+            </div>
+            
+            <p class="product-editorial-copy">
+                Bring tranquility to your space with our premium 3-wick lavender scented candle. Housed in a warm, minimalist amber glass jar, this candle combines an elegant, cozy aesthetic with the soothing, deeply relaxing aroma of fresh lavender fields. Perfect for setting a calm mood in any room or lounge area.
+            </p>
+            
+            <div class="checkout-actions-block">
+                <input class="quantity-input quantity-spinner" id="main-product-qty" type="number" value="1" min="1" aria-label="Product quantity input selector" />
+                <button class="btn-minimal-primary" id="main-add-btn" type="button">Add to cart</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Curated Related Showcase Products Panel -->
+    <section class="related-products-section">
+        <h2 class="section-headline">Related Products</h2>
+        <div class="products-grid-layout">
+            
+            <!-- Product Item Unit 1 -->
+            <div class="boutique-product-card">
+                <div class="card-graphic-container">
+                    <img class="card-thumbnail-image" src="C:\Users\rishi\Downloads\prd3.avif" alt="Aromatic Blend Premium Candle" />
+                </div>
+                <h3 class="card-product-heading">Aromatic Blend Candle</h3>
+                <div class="card-pricing-row">Rs 229.00 – Rs 279.00</div>
+                <button class="btn-minimal-secondary" type="button">Add to cart</button>
+            </div>
+            
+            <!-- Product Item Unit 2 -->
+            <div class="boutique-product-card">
+                <span class="promotional-sale-badge">Sale</span>
+                <div class="card-graphic-container">
+                    <img class="card-thumbnail-image" src="C:\Users\rishi\OneDrive\Pictures\prd1.jpg" alt="Pearl Powder Natural Organic Soap" />
+                </div>
+                <h3 class="card-product-heading">Pearl Powder Soap</h3>
+                <div class="star-rating-row">★★★★★</div>
+                <div class="card-pricing-row">
+                    <span style="text-decoration: line-through;">Rs 220.00</span>
+                    <span class="sale-highlight">Rs 180.00</span>
+                </div>
+                <button class="btn-minimal-secondary grid-add-btn" type="button">Add to cart</button>
+            </div>
+            
+            <!-- Product Item Unit 3 -->
+            <div class="boutique-product-card">
+                <span class="promotional-sale-badge">Sale</span>
+                <div class="card-graphic-container">
+                    <img class="card-thumbnail-image" src="C:\Users\rishi\Downloads\prd6.avif" alt="Bitter Almond Scented Organic Soap" />
+                </div>
+                <h3 class="card-product-heading">Bitter Almond Soap</h3>
+                <div class="card-pricing-row">
+                    <span style="text-decoration: line-through;">Rs 250.00</span>
+                    <span class="sale-highlight">Rs 220.00</span>
+                </div>
+                <button class="btn-minimal-secondary grid-add-btn" type="button">Add to cart</button>
+            </div>
+            
+            <!-- Product Item Unit 4 -->
+            <div class="boutique-product-card">
+                <div class="card-graphic-container">
+                    <img class="card-thumbnail-image" src="C:\Users\rishi\Downloads\prd4.avif" alt="Organic Artisan Beeswax Candle" />
+                </div>
+                <h3 class="card-product-heading">Organic Beeswax Candle</h3>
+                <div class="star-rating-row">★★★★★</div>
+                <div class="card-pricing-row">
+                    <span style="text-decoration: line-through;">Rs 250.00</span>
+                    <span class="sale-highlight">Rs 199.00</span>
+                </div>
+                <button class="btn-minimal-secondary grid-add-btn" type="button">Add to cart</button>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Base Editorial Identity Footer -->
+    <footer class="editorial-footer">
+        &copy; FRAIS SCENTS 2026 — Pure Minimal Luxury
+    </footer>
+
+    <!-- Cart Integration Engine JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let currentCartTotalCount = 0;
+            const cartDisplayElement = document.getElementById('cart-display');
+
+            // Function helper to animate and refresh display count natively
+            const updateCartBadgeUI = (addedValue) => {
+                currentCartTotalCount += addedValue;
+                cartDisplayElement.textContent = `(${currentCartTotalCount})`;
+                
+                // Add pop micro-interaction effect
+                cartDisplayElement.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    cartDisplayElement.style.transform = 'scale(1)';
+                }, 150);
+            };
+
+            // Main Core Product Action Handler (Respects Quantity Selector)
+            const mainAddButton = document.getElementById('main-add-btn');
+            const mainQtyInput = document.getElementById('main-product-qty');
+
+            if (mainAddButton && mainQtyInput) {
+                mainAddButton.addEventListener('click', () => {
+                    const quantitySelected = parseInt(mainQtyInput.value, 10) || 1;
+                    if (quantitySelected > 0) {
+                        updateCartBadgeUI(quantitySelected);
+                    }
+                });
+            }
+
+            // Grid Cards Sub-Items Action Handlers
+            const cardGridAddButtons = document.querySelectorAll('.grid-add-btn');
+            cardGridAddButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    updateCartBadgeUI(1); // Standard baseline incremental count
+                });
+            });
+        });
+    </script>
+</body>
+</html>
