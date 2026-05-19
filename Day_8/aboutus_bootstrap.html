@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <title>BrandName - About Us</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+      background-color: #faf8f6;
+      color: #2b2b2b;
+    }
+
+    /* FIX 1: UPDATE GRID TO 3 COLUMNS TO ACCOMMODATE BOTH SIDEBARS */
+    .site-wrapper {
+      display: grid;
+      grid-template-areas: 
+        "header header header"
+        "nav nav nav"
+        "left-sidebar main-content right-sidebar"
+        "footer footer footer";
+      grid-template-columns: 280px 1fr 280px; /* Restored to match main shop template */
+      min-height: 100vh;
+    }
+
+    .header {
+      grid-area: header;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background-color: #c46b51; 
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    
+    .brand-name {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 42px;
+      color: #fbd46d; 
+      text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+    }
+
+    .reg-btn {
+      padding: 8px 24px;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      background: transparent;
+      color: white;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .reg-btn:hover {
+      background: white;
+      color: #c46b51;
+    }
+
+    .body-nav-bar {
+      grid-area: nav;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background-color: white;
+      border-bottom: 1px solid #eaeaea;
+    }
+
+    /* SIDEBARS */
+    .sidebar {
+      padding: 40px 30px;
+      background-color: #fff;
+    }
+
+    .left-sidebar { 
+      grid-area: left-sidebar; 
+      border-right: 1px solid #eaeaea;
+    }
+
+    .right-sidebar { 
+      grid-area: right-sidebar; 
+      border-left: 1px solid #eaeaea;
+    }
+
+    .sidebar-heading {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #c46b51;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .sidebar-link {
+      display: block;
+      color: #666;
+      text-decoration: none;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+      transition: color 0.2s;
+    }
+
+    .sidebar-link:hover { color: #c46b51; }
+
+    /* MAIN CONTENT ZONE ALIGNMENT */
+    .main-content {
+      grid-area: main-content;
+      padding-bottom: 60px;
+    }
+
+    .section-title {
+      padding: 30px 40px 15px 40px;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #888;
+      font-weight: 600;
+    }
+
+    /* ABOUT US WORKSPACE ELEMENTS */
+    .about-section-wrapper {
+      margin: 0 40px 40px 40px;
+    }
+
+    .story-section {
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      border: 1px solid #eaeaea;
+      margin-bottom: 40px;
+    }
+
+    .story-section p {
+      color: #555;
+      margin-bottom: 15px;
+      font-size: 1.05rem;
+    }
+
+    /* FEEDBACK LAYOUT (Split inside Main Content) */
+    .feedback-container-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .feedback-form-box {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      border: 1px solid #eaeaea;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #2b2b2b;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .form-group input, 
+    .form-group select, 
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background-color: #faf8f6;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: #2b2b2b;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus, 
+    .form-group select:focus, 
+    .form-group textarea:focus {
+      border-color: #c46b51;
+    }
+
+    .submit-feedback-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #c46b51;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .submit-feedback-btn:hover {
+      background-color: #aa553d;
+    }
+
+    .reviews-display-column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .feedback-card {
+      background: white;
+      padding: 25px;
+      border-radius: 16px;
+      border-left: 4px solid #fbd46d;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+      border-top: 1px solid #eaeaea;
+      border-right: 1px solid #eaeaea;
+      border-bottom: 1px solid #eaeaea;
+    }
+
+    .rating-stars {
+      color: #fbd46d;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .feedback-text {
+      font-style: italic;
+      color: #555;
+      margin-bottom: 12px;
+    }
+
+    .feedback-author {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #c46b51;
+    }
+
+    /* FAQ DRAWER ACCORDION MECHANISMS */
+    .faq-item {
+      background: white;
+      margin-bottom: 12px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+      border: 1px solid #eaeaea;
+    }
+
+    .faq-input {
+      display: none;
+    }
+
+    .faq-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 25px;
+      font-weight: 500;
+      color: #2b2b2b;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .faq-label:hover {
+      background-color: #fffaf7;
+    }
+
+    .faq-label::after {
+      content: '+';
+      font-size: 1.4rem;
+      color: #c46b51;
+      transition: transform 0.3s;
+    }
+
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 25px;
+      color: #666;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .faq-input:checked ~ .faq-content {
+      max-height: 200px;
+      padding: 0 25px 20px 25px;
+    }
+
+    .faq-input:checked ~ .faq-label::after {
+      transform: rotate(45deg);
+    }
+
+    /* FOOTER */
+    .footer {
+      grid-area: footer;
+      background-color:#c46b51;
+      color: #faf8f6;
+      padding: 40px;
+      text-align: center;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1200px) {
+      .feedback-container-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .site-wrapper {
+        grid-template-areas: 
+          "header"
+          "nav"
+          "main-content"
+          "left-sidebar"
+          "right-sidebar"
+          "footer";
+        grid-template-columns: 1fr;
+      }
+      .about-section-wrapper {
+        margin: 0 20px 20px 20px;
+      }
+    }
+  </style> 
+</head>
+
+<body>
+
+<div class="site-wrapper">
+  <!-- Header Section -->
+  <header class="header">
+    <div class="brand-name">BrandName</div>
+    <div class="button-row">
+      <a href="registration.html"><button class="reg-btn">Register</button></a>
+    </div>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav class="body-nav-bar">
+    <div class="nav-left">
+      <a href="main.html" style="text-decoration:none; color:#666; margin-right: 25px;">Home</a>
+      <a href="aboutus.html" style="text-decoration:none; color:#c46b51; font-weight:600; margin-right: 25px;">About us</a>
+      <a href="prodct.html" style="text-decoration:none; color:#666;">Shop</a>
+    </div>
+    <div class="nav-right">
+      <a href="tel:+123456789" style="text-decoration:none; color:#666; "><i class="bi bi-telephone"></i> +1 234 567</a>
+    </div>
+  </nav>
+
+  <!-- LEFT SIDEBAR -->
+  <aside class="sidebar left-sidebar">
+    <h3 class="sidebar-heading">Categories</h3>
+    <a href="#" class="sidebar-link">New Arrivals</a>
+    <a href="#" class="sidebar-link">Best Sellers</a>
+    <a href="#" class="sidebar-link">Limited Edition</a>
+    <a href="#" class="sidebar-link">Discovery Sets</a>
+    
+    <h3 class="sidebar-heading" style="margin-top:30px;">Scent Notes</h3>
+    <a href="#" class="sidebar-link">Woody & Earthy</a>
+    <a href="#" class="sidebar-link">Floral & Sweet</a>
+    <a href="#" class="sidebar-link">Fresh & Citrus</a>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    
+    <!-- SECTION 1 -->
+    <p class="section-title">Our Identity</p>
+    <div class="about-section-wrapper">
+      <section class="story-section">
+        <p>Welcome to BrandName. Founded with a rebellious spirit and a lofty objective: to offer premium, consciously crafted self-care and aroma goods at a revolutionary price point.</p>
+        <p>Every single scent palette, natural soap pattern, and abstract blend we make is developed in small artisan batches. We source only high-tier ingredients, ensuring everything that interacts with your home or skin is pure, vibrant, and responsibly made.</p>
+      </section>
+    </div>
+
+    <!-- SECTION 2 -->
+    <p class="section-title">Community Feedback</p>
+    <div class="about-section-wrapper">
+      <section class="feedback-container-grid">
+        
+        <!-- Left Column -->
+        <div class="feedback-form-box">
+          <h3 style="margin-bottom: 15px; font-weight: 600; font-size: 1.1rem; color:#c46b51; text-transform:uppercase; letter-spacing:0.5px;">Share Your Experience</h3>
+          <form action="#" method="POST" onsubmit="alert('Thank you for your feedback!'); return false;">
+            <div class="form-group">
+              <label for="client-name">Your Name</label>
+              <input type="text" id="client-name" placeholder="E.g. abc" required>
+            </div>
+
+            <div class="form-group">
+              <label for="client-rating">Rating</label>
+              <select id="client-rating">
+                <option value="5">⭐⭐⭐⭐⭐ 5 Stars</option>
+                <option value="4">⭐⭐⭐⭐ 4 Stars</option>
+                <option value="3">⭐⭐⭐ 3 Stars</option>
+                <option value="2">⭐⭐ 2 Stars</option>
+                <option value="1">⭐ 1 Star</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="client-message">Your Review</label>
+              <textarea id="client-message" rows="4" placeholder="What did you think of our products..." required></textarea>
+            </div>
+
+            <button type="submit" class="submit-feedback-btn">Submit Feedback</button>
+          </form>
+        </div>
+
+        <!-- Right Column: Card Feed Display -->
+        <div class="reviews-display-column">
+          <div class="feedback-card">
+            <div class="rating-stars">★★★★★</div>
+            <p class="feedback-text">"The Vanilla Scent bar completely changed my morning routine. The natural smell fills the entire room without feeling overwhelming. Absolute perfection."</p>
+            <p class="feedback-author">— Raj P.</p>
+          </div>
+
+          <div class="feedback-card">
+            <div class="rating-stars">★★★★</div>
+            <p class="feedback-text">"Fast shipping and gorgeous aesthetic packaging. The Discovery Set makes an incredibly premium gift item. I will definitely be ordering again!"</p>
+            <p class="feedback-author">— Neha S.</p>
+          </div>
+        </div>
+
+      </section>
+    </div>
+
+    <!-- SECTION 3: FAQ DROPDOWNS -->
+    <p class="section-title">Frequently Asked Questions</p>
+    <div class="about-section-wrapper">
+      <section class="faq-section">
+
+        <div class="faq-item">
+          <input type="checkbox" id="faq1" class="faq-input">
+          <label for="faq1" class="faq-label">Are your products completely cruelty-free?</label>
+          <div class="faq-content">
+            <p>Yes, 100%. We never test our formulas, individual ingredients, or finished goods on animals, nor do we partner with third-party suppliers who do.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <input type="checkbox" id="faq2" class="faq-input">
+          <label for="faq2" class="faq-label">How long does shipping take?</label>
+          <div class="faq-content">
+            <p>Standard processing takes 1-2 business days. Once handed over to our shipping providers, domestic shipping typically delivers within 3-5 business days.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <input type="checkbox" id="faq3" class="faq-input">
+          <label for="faq3" class="faq-label">Can I update or cancel my order after it's placed?</label>
+          <div class="faq-content">
+            <p>Because we try to pack and process shipments immediately, order modification windows are limited to 1 hour after the order confirmation is generated.</p>
+          </div>
+        </div>
+
+      </section>
+    </div>
+
+  </main>
+
+  <!-- RIGHT SIDEBAR -->
+  <aside class="sidebar right-sidebar">
+    <h3 class="sidebar-heading">Trending Now</h3>
+    <div style="background:#faf8f6; padding:15px; border-radius:8px; margin-bottom:20px;">
+      <p style="font-size:0.85rem; font-weight:600;">Midnight Jasmine</p>
+      <p style="font-size:0.75rem; color:#888;">Limited Stock Remaining</p>
+    </div>
+
+    <h3 class="sidebar-heading">Why Us?</h3>
+    <p style="font-size:0.85rem; color:#666; line-height:1.6;">
+      Every bottle is hand-poured using 100% organic essential oils. No synthetic fixatives.
+    </p>
+  </aside>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="btn-group" role="group" aria-label="Basic example">
+      
+    <i class="bi bi-instagram" ></i>
+
+
+    <i class="bi bi-facebook" style="padding: 0px 5px ;"></i>
+
+   <i class="bi bi-twitter-x"></i>
+
+    </div>
+    <p>&copy; 2026 BrandName </p>
+    <p style="font-size: 0.8rem; margin-top:10px; opacity: 0.7;">Crafted for the senses.</p>
+  </footer>
+</div>
+
+</body>
+</html>
