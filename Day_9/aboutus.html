@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Restored full bootstrap delivery stylesheet missing from original about block -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <title>BrandName - About Us</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+      background-color: #faf8f6;
+      color: #2b2b2b;
+    }
+
+    /* Core shortcuts kept for custom theme parity */
+    .bg-theme { background-color: #c46b51 !important; }
+    .text-theme { color: #c46b51 !important; }
+
+    /* CORE GRID DESIGN - LEFT UNTOUCHED */
+    .site-wrapper {
+      display: grid;
+      grid-template-areas: 
+        "header header header"
+        "nav nav nav"
+        "left-sidebar main-content right-sidebar"
+        "footer footer footer";
+      grid-template-columns: 280px 1fr 280px; 
+      min-height: 100vh;
+    }
+
+    .header { grid-area: header; }
+    .body-nav-bar { grid-area: nav; }
+    .left-sidebar { grid-area: left-sidebar; }
+    .right-sidebar { grid-area: right-sidebar; }
+    .main-content { grid-area: main-content; }
+    .footer { grid-area: footer; }
+    
+    .brand-name {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 42px;
+      color: #fbd46d; 
+      text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+    }
+
+    /* CUSTOM ACCORDION DRAWER FUNCTIONALITY - LEFT UNTOUCHED */
+    .faq-input {
+      display: none;
+    }
+
+    .faq-label::after {
+      content: '+';
+      font-size: 1.4rem;
+      color: #c46b51;
+      transition: transform 0.3s;
+    }
+
+    .faq-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .faq-input:checked ~ .faq-content {
+      max-height: 200px;
+    }
+
+    .faq-input:checked ~ .faq-label::after {
+      transform: rotate(45deg);
+    }
+
+    /* RESPONSIVE LAYOUT BREAKPOINTS - LEFT UNTOUCHED */
+    @media (max-width: 1024px) {
+      .site-wrapper {
+        grid-template-areas: 
+          "header"
+          "nav"
+          "main-content"
+          "left-sidebar"
+          "right-sidebar"
+          "footer";
+        grid-template-columns: 1fr;
+      }
+    }
+  </style> 
+</head>
+
+<body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+<div class="site-wrapper">
+  <!-- Header Section -->
+  <header class="header bg-theme d-flex justify-content-between align-items-center px-4 py-3 shadow-sm">
+    <div class="brand-name">BrandName</div>
+    <div>
+      <a href="registration.html"><button class="btn btn-outline-light rounded-pill px-4 fw-medium">Register</button></a>
+    </div>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav class="body-nav-bar bg-white border-bottom d-flex justify-content-between align-items-center px-4 py-3">
+    <div>
+      <a href="main.html" class="text-decoration-none text-secondary me-4">Home</a>
+      <a href="aboutus.html" class="text-decoration-none text-theme fw-semibold me-4">About us</a>
+      <a href="prodct.html" class="text-decoration-none text-secondary">Shop</a>
+    </div>
+    <div>
+      <a href="tel:+123456789" class="text-decoration-none text-secondary"><i class="bi bi-telephone-fill me-1"></i> +1 234 567</a>
+    </div>
+  </nav>
+
+  <!-- LEFT SIDEBAR -->
+  <aside class="sidebar left-sidebar bg-white p-4 border-end">
+    <h3 class="fs-6 text-uppercase fw-bold text-theme mb-3" style="letter-spacing: 1.5px;">Categories</h3>
+    <a href="#" class="d-block text-secondary text-decoration-none mb-2 link-danger">New Arrivals</a>
+    <a href="#" class="d-block text-secondary text-decoration-none mb-2 link-danger">Best Sellers</a>
+    <a href="#" class="d-block text-secondary text-decoration-none mb-2 link-danger">Limited Edition</a>
+    <a href="#" class="d-block text-secondary text-decoration-none mb-4 link-danger">Discovery Sets</a>
+    
+    <h3 class="fs-6 text-uppercase fw-bold text-theme mb-3" style="letter-spacing: 1.5px;">Scent Notes</h3>
+    <a href="#" class="d-block text-secondary text-decoration-none mb-2 link-danger">Woody & Earthy</a>
+    <a href="#" class="d-block text-secondary text-decoration-none mb-2 link-danger">Floral & Sweet</a>
+    <a href="#" class="d-block text-secondary text-decoration-none mb-2 link-danger">Fresh & Citrus</a>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content pb-5">
+    
+    <!-- SECTION 1 -->
+    <p class="px-4 pt-4 pb-2 fs-6 text-uppercase fw-semibold text-muted" style="letter-spacing: 2px;">Our Identity</p>
+    <div class="mx-4 mb-4">
+      <section class="bg-white p-4 rounded-4 border shadow-sm">
+        <p class="text-secondary fs-5 mb-3">Welcome to BrandName. Founded with a rebellious spirit and a lofty objective: to offer premium, consciously crafted self-care and aroma goods at a revolutionary price point.</p>
+        <p class="text-secondary fs-5 mb-0">Every single scent palette, natural soap pattern, and abstract blend we make is developed in small artisan batches. We source only high-tier ingredients, ensuring everything that interacts with your home or skin is pure, vibrant, and responsibly made.</p>
+      </section>
+    </div>
+
+    <!-- SECTION 2 -->
+    <p class="px-4 pt-4 pb-2 fs-6 text-uppercase fw-semibold text-muted" style="letter-spacing: 2px;">Community Feedback</p>
+    <div class="mx-4 mb-4">
+      <!-- Using Bootstrap Row for side-by-side forms and reviews -->
+      <section class="row g-4">
+        
+        <!-- Left Column Form Box -->
+        <div class="col-12 col-xl-6">
+          <div class="bg-white p-4 rounded-4 border shadow-sm">
+            <h3 class="fs-6 text-uppercase fw-bold text-theme mb-3" style="letter-spacing:0.5px;">Share Your Experience</h3>
+            <form action="#" method="POST" onsubmit="alert('Thank you for your feedback!'); return false;">
+              <div class="mb-3">
+                <label for="client-name" class="form-label small fw-bold text-uppercase text-muted m-0 mb-2" style="letter-spacing: 0.5px;">Your Name</label>
+                <input type="text" id="client-name" class="form-control bg-light border p-2" placeholder="E.g. abc" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="client-rating" class="form-label small fw-bold text-uppercase text-muted m-0 mb-2" style="letter-spacing: 0.5px;">Rating</label>
+                <select id="client-rating" class="form-select bg-light border p-2">
+                  <option value="5">⭐⭐⭐⭐⭐ 5 Stars</option>
+                  <option value="4">⭐⭐⭐⭐ 4 Stars</option>
+                  <option value="3">⭐⭐⭐ 3 Stars</option>
+                  <option value="2">⭐⭐ 2 Stars</option>
+                  <option value="1">⭐ 1 Star</option>
+                </select>
+              </div>
+
+              <div class="mb-4">
+                <label for="client-message" class="form-label small fw-bold text-uppercase text-muted m-0 mb-2" style="letter-spacing: 0.5px;">Your Review</label>
+                <textarea id="client-message" class="form-control bg-light border p-2" rows="4" placeholder="What did you think of our products..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn bg-theme text-white w-100 rounded-pill p-2 fw-medium shadow-sm">Submit Feedback</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Right Column: Card Feed Display -->
+        <div class="col-12 col-xl-6 d-flex flex-column gap-3">
+          <div class="bg-white p-4 rounded-4 shadow-sm border border-start-4 border-warning">
+            <div class="text-warning mb-2 fs-5">★★★★★</div>
+            <p class="fst-italic text-secondary mb-2">"The Vanilla Scent bar completely changed my morning routine. The natural smell fills the entire room without feeling overwhelming. Absolute perfection."</p>
+            <p class="small fw-bold text-theme m-0">— Raj P.</p>
+          </div>
+
+          <div class="bg-white p-4 rounded-4 shadow-sm border border-start-4 border-warning">
+            <div class="text-warning mb-2 fs-5">★★★★</div>
+            <p class="fst-italic text-secondary mb-2">"Fast shipping and gorgeous aesthetic packaging. The Discovery Set makes an incredibly premium gift item. I will definitely be ordering again!"</p>
+            <p class="small fw-bold text-theme m-0">— Neha S.</p>
+          </div>
+        </div>
+
+      </section>
+    </div>
+
+    <!-- SECTION 3: FAQ -->
+    <p class="px-4 pt-4 pb-2 fs-6 text-uppercase fw-semibold text-muted" style="letter-spacing: 2px;">Frequently Asked Questions</p>
+    <div class="mx-4">
+      <section>
+
+        <div class="bg-white mb-2 rounded-3 overflow-hidden border shadow-sm">
+          <input type="checkbox" id="faq1" class="faq-input">
+          <label for="faq1" class="faq-label d-flex justify-content-between align-items-center p-3 fw-medium text-dark bg-white">Are your products completely cruelty-free?</label>
+          <div class="faq-content bg-white px-3 text-secondary">
+            <p class="pb-3 m-0">Yes, 100%. We never test our formulas, individual ingredients, or finished goods on animals, nor do we partner with third-party suppliers who do.</p>
+          </div>
+        </div>
+
+        <div class="bg-white mb-2 rounded-3 overflow-hidden border shadow-sm">
+          <input type="checkbox" id="faq2" class="faq-input">
+          <label for="faq2" class="faq-label d-flex justify-content-between align-items-center p-3 fw-medium text-dark bg-white">How long does shipping take?</label>
+          <div class="faq-content bg-white px-3 text-secondary">
+            <p class="pb-3 m-0">Standard processing takes 1-2 business days. Once handed over to our shipping providers, domestic shipping typically delivers within 3-5 business days.</p>
+          </div>
+        </div>
+
+        <div class="bg-white mb-2 rounded-3 overflow-hidden border shadow-sm">
+          <input type="checkbox" id="faq3" class="faq-input">
+          <label for="faq3" class="faq-label d-flex justify-content-between align-items-center p-3 fw-medium text-dark bg-white">Can I update or cancel my order after it's placed?</label>
+          <div class="faq-content bg-white px-3 text-secondary">
+            <p class="pb-3 m-0">Because we try to pack and process shipments immediately, order modification windows are limited to 1 hour after the order confirmation is generated.</p>
+          </div>
+        </div>
+
+      </section>
+    </div>
+
+  </main>
+
+  <!-- RIGHT SIDEBAR -->
+  <aside class="right-sidebar bg-white p-4 border-start">
+    <h3 class="fs-6 text-uppercase fw-bold text-theme mb-3" style="letter-spacing: 1.5px;">Trending Now</h3>
+    <div class="p-3 rounded-3 mb-4" style="background:#faf8f6;">
+      <p class="small fw-semibold mb-1">Midnight Jasmine</p>
+      <p class="small text-muted mb-0">Limited Stock Remaining</p>
+    </div>
+
+    <h3 class="fs-6 text-uppercase fw-bold text-theme mb-3" style="letter-spacing: 1.5px;">Why Us?</h3>
+    <p class="small text-secondary lh-base">
+      Every bottle is hand-poured using 100% organic essential oils. No synthetic fixatives.
+    </p>
+  </aside>
+
+  <!-- FOOTER -->
+  <footer class="footer bg-theme text-white p-4 text-center">
+    <div class="d-flex justify-content-center gap-3 mb-2 fs-5">
+      <i class="bi bi-instagram"></i>
+      <i class="bi bi-facebook"></i>
+      <i class="bi bi-twitter-x"></i>
+    </div>
+    <p class="mb-0">&copy; 2026 BrandName </p>
+    <p class="small mt-2 mb-0 opacity-75">Crafted for the senses.</p>
+  </footer>
+</div>
+
+</body>
+</html>
