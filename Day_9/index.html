@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <title>BrandName - Premium Shop</title>
+  <style>
+   
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body { 
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+      background-color: #faf8f6;
+      color: #2b2b2b;
+    }
+
+   
+    .bg-theme { background-color: #c46b51 !important; }
+    .text-theme { color: #c46b51 !important; }
+
+   
+    .site-wrapper {
+      display: grid;
+      grid-template-areas: 
+        "header header header"
+        "nav nav nav"
+        "left-sidebar main-content right-sidebar"
+        "footer footer footer";
+      grid-template-columns: 280px 1fr 280px;
+      min-height: 100vh;
+    }
+
+    .header { grid-area: header; }
+    .body-nav-bar { grid-area: nav; }
+    .left-sidebar { grid-area: left-sidebar; }
+    .right-sidebar { grid-area: right-sidebar; }
+    .main-content { grid-area: main-content; }
+    .footer { grid-area: footer; }
+    
+    .brand-name {
+      font-family: 'Brush Script MT', cursive;
+      font-size: 42px;
+      color: #fbd46d; 
+      text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+    }
+
+  
+    .horizontal-container {
+      height: 65vh; 
+      overflow-x: auto; 
+      scroll-snap-type: x mandatory; 
+    }
+
+    .slide {
+      width: 100%; 
+      flex-shrink: 0; 
+      scroll-snap-align: start;
+    }
+
+    .slide h2 { 
+      font-family: 'Georgia', serif; 
+      font-size: 2.2rem; 
+    }
+
+   
+    @media (max-width: 1024px) {
+      .site-wrapper {
+        grid-template-areas: 
+          "header"
+          "nav"
+          "main-content"
+          "left-sidebar"
+          "right-sidebar"
+          "footer";
+        grid-template-columns: 1fr;
+      }
+    }
+  </style> 
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+<div class="site-wrapper">
+  <!-- Header Section -->
+  <header class="header bg-theme d-flex justify-content-between align-items-center px-4 py-3 shadow-sm">
+    <div class="brand-name">BrandName</div>
+    <div>
+      <a href="registration.html">
+        <button class="btn btn-outline-light rounded-pill px-4 fw-medium">Register</button>
+      </a>
+    </div>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav class="body-nav-bar bg-white border-bottom d-flex justify-content-between align-items-center px-4 py-3">
+    <div>
+      <a href="main.html" class="text-decoration-none text-theme fw-semibold me-4">Home</a>
+      <a href="aboutus.html" class="text-decoration-none text-secondary me-4">About us</a>
+      <a href="prodct.html" class="text-decoration-none text-secondary">Shop</a>
+    </div>
+    <div>
+      <a href="tel:+123456789" class="text-decoration-none text-secondary">
+        <i class="bi bi-telephone me-1"></i> +1 234 567
+      </a>
+    </div>
+  </nav>
+
+  <!-- LEFT SIDEBAR -->
+  <aside class="left-sidebar bg-white p-4 border-end">
+    <h3 class="fs-6 text-uppercase fw-bold text-theme mb-3" style="letter-spacing: 1.5px;">Categories</h3>
+    <a href="#" class="d-block text-secondary text-decoration-none mb-2 link-danger">New Arrivals</a>
+    <a href="#" class="d-block text-secondary text-decoration-none mb-2 link-danger">Best Sellers</a>
+    <a href="#" class="d-block text-secondary text-decoration-none mb-2 link-danger">Limited Edition</a>
+    <a href="#" class="d-block text-secondary text-decoration-none mb-4 link-danger">Discovery Sets</a>
+    
+    <h3 class="fs-6 text-uppercase fw-bold text-theme mb-3" style="letter-spacing: 1.5px;">Scent Notes</h3>
+    <a href="#" class="d-block text-secondary text-decoration-none mb-2 link-danger">Woody & Earthy</a>
+    <a href="#" class="d-block text-secondary text-decoration-none mb-2 link-danger">Floral & Sweet</a>
+    <a href="#" class="d-block text-secondary text-decoration-none mb-2 link-danger">Fresh & Citrus</a>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content pb-5">
+    <p class="px-4 pt-4 pb-2 fs-6 text-uppercase fw-semibold text-muted" style="letter-spacing: 2px;">Shop All Favorites</p>
+
+    <!-- Slide Gallery -->
+    <div class="horizontal-container d-flex mx-4 mb-4 bg-white rounded-4 shadow-sm border">
+      <!-- SLIDE 1 -->
+      <section class="slide d-flex">
+        <div class="w-50 p-5 d-flex flex-column justify-content-center">
+          <h2>Nature's<br>Essence</h2>
+          <p class="text-secondary mb-4">Experience the art of fine scent composition. Crafted using rare botanical extracts.</p>
+          <button class="btn bg-theme text-white rounded-pill px-4 py-2 w-auto align-self-start">Shop Perfume</button>
+        </div>
+        <div class="w-50">
+          <img src="C:\Users\rishi\OneDrive\Pictures\Screenshots\Screenshot 2026-05-12 111120.png" class="w-100 h-100 object-fit-cover" alt="Product 1 Showcase">
+        </div>
+      </section>
+
+      <!-- SLIDE 2 -->
+      <section class="slide d-flex">
+        <div class="w-50 p-5 d-flex flex-column justify-content-center">
+          <h2>Fresh<br>Scents</h2>
+          <p class="text-secondary mb-4">Explore curated seasonal favorites designed to transform your environment.</p>
+          <button class="btn bg-theme text-white rounded-pill px-4 py-2 w-auto align-self-start">View More</button>
+        </div>
+        <div class="w-50">
+          <img src="C:\Users\rishi\OneDrive\Pictures\Screenshots\Screenshot 2026-05-12 111230.png" class="w-100 h-100 object-fit-cover" alt="Product 2 Showcase">
+        </div>
+      </section>
+    </div>
+
+    <!-- Table Section -->
+    <div class="mx-4 bg-white rounded-4 overflow-hidden border shadow-sm">
+      <p class="px-4 pt-4 pb-2 fs-6 text-uppercase fw-semibold text-muted" style="letter-spacing: 2px;">Scent Mood Guide</p>
+      <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+          <thead>
+            <tr>
+              <th class="bg-theme text-white p-3">Mood</th>
+              <th class="bg-theme text-white p-3">Family</th>
+              <th class="bg-theme text-white p-3">Ingredients</th>
+              <th class="bg-theme text-white p-3">Benefit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="p-3">Calm</td>
+              <td class="p-3">Floral</td>
+              <td class="p-3">Lavender, Chamomile</td>
+              <td class="p-3">Reduces stress.</td>
+            </tr>
+            <tr>
+              <td class="p-3">Energized</td>
+              <td class="p-3">Citrus</td>
+              <td class="p-3">Bergamot, Lime</td>
+              <td class="p-3">Uplifts spirits.</td>
+            </tr>
+            <tr>
+              <td class="p-3">Focused</td>
+              <td class="p-3">Green</td>
+              <td class="p-3">Rosemary, Peppermint</td>
+              <td class="p-3">Improves concentration.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <!-- RIGHT SIDEBAR -->
+  <aside class="right-sidebar bg-white p-4 border-start">
+    <h3 class="fs-6 text-uppercase fw-bold text-theme mb-3" style="letter-spacing: 1.5px;">Trending Now</h3>
+    <div class="p-3 rounded-3 mb-4" style="background:#faf8f6;">
+      <p class="small fw-semibold mb-1">Midnight Jasmine</p>
+      <p class="small text-muted mb-0">Limited Stock Remaining</p>
+    </div>
+
+    <h3 class="fs-6 text-uppercase fw-bold text-theme mb-3" style="letter-spacing: 1.5px;">Why Us?</h3>
+    <p class="small text-secondary lh-base">
+      Every bottle is hand-poured using 100% organic essential oils. No synthetic fixatives.
+    </p>
+  </aside>
+
+  <!-- FOOTER -->
+  <footer class="footer bg-theme text-white p-4 text-center">
+    <p class="mb-0">&copy; 2026 BrandName </p>
+    <p class="small mt-2 mb-0 opacity-75">Crafted for the senses.</p>
+  </footer>
+</div>
+
+</body>
+</html>
