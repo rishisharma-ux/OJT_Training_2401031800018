@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Tasks</title>
+    <style>
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #4CAF50; color: white; }
+
+        
+        
+        #source-div { border: 2px dashed red; padding: 10px; margin-bottom: 10px; background-color: #fff5f5; }
+        #target-div { border: 2px solid blue; padding: 10px; min-height: 50px; background-color: #f5faff; }
+        button { margin: 5px 0; padding: 6px 12px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <h1>jQuery Tasks</h1>
+
+    <h2>Task 11 & 13: Table Operations</h2>
+    <table id="dish-table">
+        <thead>
+            <tr>
+                <th>Dish Name</th>
+                <th>Cuisine</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Pasta </td>
+                <td>Italian</td>
+                <td><button class="delete-btn">Delete</button></td>
+            </tr>
+            <tr>
+                <td>Tacos </td>
+                <td>Mexican</td>
+                <td><button class="delete-btn">Delete</button></td>
+            </tr>
+            <tr>
+                <td>Sushi </td>
+                <td>Japanese</td>
+                <td><button class="delete-btn">Delete</button></td>
+            </tr>
+            <tr>
+                <td>Chicken Tikka</td>
+                <td>Indian</td>
+                <td><button class="delete-btn">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+
+    <h2>Task 12: Move Div Elements</h2>
+    
+    <div id="source-div">
+        <strong>Source Container:</strong>  some text components 
+    </div>
+
+    <div id="target-div">
+        <strong>Target Container:</strong> (Empty Area)
+    </div>
+    
+    <button id="move-btn">Move Source Div Inside Target</button>
+
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            
+            // --- Task 11: Zebra Striping ---
+            $("#dish-table tbody tr:even").css("background-color", "#f9f9f9");
+            $("#dish-table tbody tr:odd").css("background-color", "#e9e9e9");
+
+            // --- Task 12: Move Div Element ---
+            $("#move-btn").click(function() {
+                $("#source-div").appendTo("#target-div");
+            });
+
+            // --- Task 13: Remove Specific Table Row ---
+            $(".delete-btn").click(function() {
+                $(this).closest("tr").remove();
+                
+                
+                $("#dish-table tbody tr").css("background-color", ""); // Reset
+                $("#dish-table tbody tr:even").css("background-color", "#f9f9f9");
+                $("#dish-table tbody tr:odd").css("background-color", "#e9e9e9");
+            });
+
+        });
+    </script>
+</body>
+</html>
